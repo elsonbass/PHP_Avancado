@@ -3,6 +3,8 @@
 class Banco
 {
 	private $pdo;
+	private $numRows;
+	private $array;
 
 	public function __construct($host, $dbname, $dbuser, $dbpass)
 	{
@@ -14,5 +16,10 @@ class Banco
 			echo "Falhou! " . $e->getMessage();
 		}
 
+	}
+
+	public function query($sql)
+	{
+		$query = $this->pdo->query($sql);
 	}
 }
